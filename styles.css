@@ -10,7 +10,10 @@ body {
   background-color: transparent;
 }
 .fonts{
-    font-size: 24px;
+    font-size: 20px;
     line-height: 130%;
   color: #fff;
+}
+.welcome{
+  font-size: 24px;
 }
