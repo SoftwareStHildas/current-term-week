@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.cdnfonts.com/css/qanelas" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="fonts">Welcome</div>
+     <div class="fonts" id="term-info"></div>
+  
+  </div>
+
+  <script>
+    const terms = [
+         //2025
+        { term: 1, start: new Date("2025-01-29"), end: new Date("2025-04-11") },
+        { term: 2, start: new Date("2025-04-29"), end: new Date("2025-06-27") },
+        { term: 3, start: new Date("2025-07-22"), end: new Date("2025-09-26") },    
+        { term: 4, start: new Date("2025-10-14"), end: new Date("2025-12-05") },
+        //2026
+        { term: 1, start: new Date("2026-01-28"), end: new Date("2026-04-02") },
+        { term: 2, start: new Date("2026-04-21"), end: new Date("2026-06-26") },
+        { term: 3, start: new Date("2026-07-21"), end: new Date("2026-09-25") },
+        { term: 4, start: new Date("2026-10-13"), end: new Date("2026-12-04") },
+        //2027
+        { term: 1, year: 2027, start: new Date("2027-01-28"), end: new Date("2027-04-09") },
+        { term: 2, year: 2027, start: new Date("2027-04-28"), end: new Date("2027-06-25") },
+        { term: 3, year: 2027, start: new Date("2027-07-20"), end: new Date("2027-09-24") },
+        { term: 4, year: 2027, start: new Date("2027-10-12"), end: new Date("2027-12-03") }
+    ];
+     function getCurrentTermAndWeek(date = new Date()) {
+      for (let t of terms) {
+        if (date >= t.start && date <= t.end) {
+          const diffDays = Math.floor((date - t.start) / (1000 * 60 * 60 * 24));
+          const week = Math.floor(diffDays / 7) + 1;
+          return `Term ${t.term}, Week ${week}`;
+        }
+      }
+      return " ";
+    }
+     document.getElementById("term-info").textContent = getCurrentTermAndWeek();
+
+
+  
+  </script>
+</body>
+</html>
